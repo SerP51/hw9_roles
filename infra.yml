@@ -1,1 +1,18 @@
+---
+- name: Configure building servers
+  hosts: build-srvs
+  become: yes
 
+  roles:
+    - common
+    - builder
+    
+
+
+- name: Configure production servers
+  hosts: prod-srvs
+  become: yes
+
+  roles:
+    - common
+    - tomcat

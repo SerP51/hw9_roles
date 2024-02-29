@@ -1,2 +1,18 @@
 ---
 # tasks file for tomcat
+  - name: synchronize WAR step 2
+    synchronize:
+      mode: push
+      src: ./hello-1.0.war
+      dest: /var/lib/tomcat9/webapps/hello-1.0.war
+    delegate_to: localhost
+
+  - name: Ensure tomcat9 package is present
+    apt:
+      name: tomcat9
+      state: present
+
+  - name: Ensure tomcat9 service is started
+    service:
+      name: tomcat9
+      state: started
