@@ -9,11 +9,11 @@
 - name: Clone a repo 
   git:
     repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-    dest: {{ boxfuse_folder }}
+    dest: "{{ boxfuse_folder }}"
 
 - name: Change the working directory and run maven package
   shell:
-    chdir: {{ boxfuse_folder }}
+    chdir: "{{ boxfuse_folder }}"
     cmd: mvn package
 
 - name: synchronize WAR step 1
